@@ -1,0 +1,36 @@
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: blueviolet;
+    font-size: 100px;
+    background: -webkit-linear-gradient(orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 3px;
+
+}
+h2 {
+    text-align: center;
+    margin-top: 0px;
+    padding-right: 26%;
+}
+.column {
+    float: left;
+    width: 50%;
+    height: 300px; 
+    padding-top: 10px;
+    background-color: grey;
+
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .row {
+      width: 500px;
+      margin: auto;
+  }
