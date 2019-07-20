@@ -1,102 +1,136 @@
 var words = [
-    "COUNTRY",
-    "EDM",
-    "ROCK",
-    "METAL",
-    "CLASSICAL",
-    "RAP",
-    "JAZZ"
+  "country",
+  "edm",
+  "rock",
+  "metal",
+  "classical",
+  "rap",
+  "jazz"
 
 ];
+wins = 0;
+rounds = 1;
+var win = document.getElementById("wins");
+var round = document.getElementById("rounds");
+var again = document.getElementById("resetbtn");
+console.log("letters----------");
 var ansDiv = document.getElementById("theWord");
 var word = words[Math.floor(Math.random() * words.length)];
-for (var i = 0; i < word.length; i++){
-console.log(word[i]);
-}
 
 
+
+wordTwo = word.split('');
+console.log(wordTwo);
 var answerArray = [];
 for (var i = 0; i < word.length; i++) {
- answerArray[i] = "_";
- ansDiv.textContent = answerArray;}
+  answerArray[i] = "_";
+  ansDiv.textContent = answerArray.join(' '); // TODO: Remove commas.
+}
+answerLog = function (ke) {
+  guessArray.push(ke);
+  var isLetter = false;
+  targetDiv.textContent = guessArray.join(' ');
 
- for (var i = 0; i < word.length; i++){
-answerLog = function (){
-if (keyEntry === word[0]) {
-  answerArray[0].push(String.fromCharCode(charCode))
+  for (var i = 0; i < word.length; i++) {
+
+    if (ke === word[i]) {
+      console.log("if");
+      isLetter = true;
+      console.log("Pressed/rightletter " + ke + " " + word[i]);
+      answerArray[i] = ke
+      ansDiv.textContent = answerArray.join(' ');
+      console.log(answerArray);
+      console.log("winner------ " + answerArray.toString() + "----" + wordTwo.toString())
+
+      if (wordTwo.toString() === answerArray.toString()) {
+        again.style.display = "block";
+        wins++;
+        win.textContent = 'Wins: ' + wins;
+        
+
+      }
+    }
+  }
+
+  if (!isLetter) {
+    console.log("else");
+    guessesDone();
+  }
+
+  if (guessesLeft < 1) {
+    ke = " "
+  }
 }
-else {
-  guessesDone ();
-}
-}}
+
 var remainingLetters = word.length;
-// document.onkeyup = keyEntry;
-
 var targetDiv = document.getElementById("lettersGuessed");
-
-// targetDiv.textContent = "Hello friends!";
-// while (remainingLetters > 0) {
-//     targetDiv.appendChild("div")
-//     targetdiv.textContent = keyEntry;
-//    }
-
-// function(guessCount) {
-//   for (i=0; i<12; i++){
-  
-//     }
-// }
-// if (guessArray.length = [12]){
-//   alert("game over")}
 var guessDiv = document.getElementById("guesses");
-
-
-
-
-
-// keyEntry=function(guessSubtract){
-//   if (keyEntry.key=true) {
-//    guessesLeft -1;
-//    guessDiv.textContent=guessesLeft
- 
-    
-//   }
-
-// }
-
-
-
-// for (i=0; i<12; i++){
-
-var keyEntry =document.onkeyup
-
-
+console.log("------------words--")
 var guessArray = [];
-for (i=0; i<12; i++){
-  console.log(words[i]);
-document.onkeyup = function(keyEntry) {
-console.log(keyEntry.key);
-charCode=keyEntry.keyCode;
-guessArray.push(String.fromCharCode(charCode));
-// console.log(guessArray);
-targetDiv.textContent = guessArray;
-answerLog ();
-}}
 
-// for (i=0; i<12; i++){
-  var guessesLeft = 12; 
-guessesDone=function(){ 
-  if (guessArray.length < 1){
-    guessesLeft=12;}
-  else if (guessesLeft > 0) {
+console.log(words[i]);
+document.onkeyup = function (keyEntry) {
+  var ke = keyEntry.key;
+  answerLog(ke);
+}
+
+var guessesLeft = 12;
+guessesDone = function () {
   var x = 1;
-guessesLeft = (guessesLeft - x);
-}
-else {
-alert("You Lose Press F5")
-}
-// if (guessesLeft=0){
-//   alert("gaveover");
-// }
-guessDiv.textContent = guessesLeft;}
+  guessesLeft = (guessesLeft - x);
+  guessDiv.textContent = guessesLeft;
+  if (guessesLeft < 1) {
+    again.style.display = "block";
+    round++
+        win.textContent = 'Wins: ' + wins;
 
-// guessSubtract ();
+  }
+
+}
+var reset = function () {
+  again.style.display = "none";
+  guessesLeft = 12;
+  guessDiv.textContent = guessesLeft;
+  guessArray = [];
+  answerArray = [];
+  targetDiv.textContent = guessArray;
+  rounds++
+  round.textContent = 'Rounds: ' + rounds;
+  word = words[Math.floor(Math.random() * words.length)];
+  for (var i = 0; i < word.length; i++) {
+    gImages ()
+    answerArray[i] = "_";
+    ansDiv.textContent = answerArray.join(' ');
+  }
+  wordTwo = word.split('');
+}
+
+win.textContent = 'Wins: ' + wins;
+round.textContent = 'Rounds: ' + rounds;
+guessDiv.textContent = guessesLeft;
+function gImages() {
+  if (word===words[0]) {
+    document.getElementById("img").src = "assets/images/country.jpg";
+  }
+  if (word===words[1]) {
+    document.getElementById("img").src = "assets/images/edm.jpg";
+  }
+  if (word===words[2]) {
+    document.getElementById("img").src = "assets/images/rock.jpg";
+  }
+  if (word===words[3]) {
+    document.getElementById("img").src = "assets/images/metal.jpg";
+  }
+  if (word===words[4]) {
+    document.getElementById("img").src = "assets/images/classical.jpg";
+  }
+  if (word===words[5]) {
+    document.getElementById("img").src = "assets/images/rap.jpg";
+  }
+  if (word===words[6]) {
+    document.getElementById("img").src = "assets/images/jazz.jpg";
+  }
+}
+
+gImages ()
+

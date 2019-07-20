@@ -9,14 +9,16 @@
     <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
 </head>
 <body>
+    <div id="body">
     <h1>Hangman</h1>
-    <h2>Music Genres</h2>
+    <h2>♫Music Genres♫</h2>
     <div class="row">
-            <div class="column"><p>IMG placeholder</p></div>
+            <div class="column"><img id="img"></img>
+            <button onclick="reset()" id="resetbtn">Next Round</button></div>
             
             <div class="column"><p>Press any key to get started!</p>
-                <p>WINS</p>
                 <p id="wins"></p>
+                <p id="rounds"></p>
                 <p>Current Word:</p>
                 <div id="theWord"></div>
                 <p>Number of guesses remaining</p>
@@ -30,6 +32,6 @@
           </div>
 
           <script type="text/javascript" src="assets/javascript/game.js"></script>
-
+</div>
 </body>
 </html>
