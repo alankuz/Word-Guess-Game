@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,19 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
 </head>
+
 <body>
     <div id="body">
-    <h1>Hangman</h1>
-    <h2>♫Music Genres♫</h2>
-    <div class="row">
+        <h1>Hangman</h1>
+        <h2>♫Music Genres♫</h2>
+        <div class="row">
             <div class="column"><img id="img"></img>
-            <button onclick="reset()" id="resetbtn">Next Round</button>
-            <p id="standing">You lose...</p></div>
-            
-            <div class="column"><p>Press any key to get started!</p>
+                <button onclick="reset()" id="resetbtn">Next Round</button>
+                <p id="standing">You lose...</p>
+            </div>
+
+            <div class="column">
+                <p>Press any key to get started!</p>
                 <p id="wins"></p>
                 <p id="rounds"></p>
                 <p>Current Word:</p>
@@ -26,13 +30,14 @@
                 <div id="guesses"></div>
                 <p>Letters already guessed:</p>
                 <div id="lettersGuessed"></div>
-            
-            
-            </div>
-            
-          </div>
 
-          <script type="text/javascript" src="assets/javascript/game.js"></script>
-</div>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+    </div>
 </body>
+
 </html>
