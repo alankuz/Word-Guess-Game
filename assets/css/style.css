@@ -75,3 +75,12 @@ h2 {
       border: 2px solid red;
       margin-left: 10px;
   }
+  #lettersGuessed, #theWord {
+    text-transform: capitalize;
+
+  }
+  #standing {
+      text-align: center;
+      display: none;
+      
+  }
